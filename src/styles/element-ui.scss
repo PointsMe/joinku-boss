@@ -1,0 +1,150 @@
+//to reset element-ui default css
+.el-upload {
+  input[type="file"] {
+    display: none !important;
+  }
+}
+
+.el-upload__input {
+  display: none;
+}
+
+//暂时性解决diolag 问题 https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+  transform: none;
+  left: 0;
+  position: relative;
+  margin: 0 auto;
+}
+
+//element ui upload
+.upload-container {
+  .el-upload {
+    width: 100%;
+    .el-upload-dragger {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+.el-divider--horizontal {
+  margin: 0;
+  background-color: rgba(230, 230, 230, 0.8);
+}
+.duoguig .el-checkbox__inner {
+  border-radius: 50%;
+}
+.reg-css .el-step__title.is-process {
+  color: #c0c4cc !important;
+}
+.reg-css .el-step__head.is-process {
+  color: #c0c4cc !important;
+  border-color: #c0c4cc !important;
+}
+.reg-css .searchInput .el-input__inner {
+  /* border: none !important;
+  outline: medium !important; */
+}
+.reg-css .el-step.is-simple .el-step__title {
+  font-weight: 300 !important;
+}
+.reg-css .pac-container {
+  margin-top: 15px !important;
+  width: 320px !important;
+  top: 22px !important;
+  left: 140px !important;
+  border-top: none !important;
+  border-radius: 0px 0px 8px 8px !important;
+}
+
+.regs .pac-container {
+  margin-top: 15px !important;
+  width: 235px !important;
+  top: 15px !important;
+  left: 100px !important;
+  border-top: none !important;
+  border-radius: 0px 0px 8px 8px !important;
+}
+
+.reg-css .el-steps--simple {
+  width: 100%;
+}
+.regs .el-input__inner {
+  border: none;
+}
+.regs .el-form-item__error {
+  left: 15px !important;
+}
+.regs .el-upload--picture-card {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px 0px;
+}
+.regs .el-upload--picture-card i {
+  font-size: 18px;
+}
+.regs .el-upload-list__item {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px 8px 0px 0px;
+}
+.regs .el-form-item__label {
+  line-height: 28px !important;
+}
+.regs .el-form-item__content {
+  line-height: 28px !important;
+}
+.regs .el-form-item {
+  margin: 20px 0px !important;
+}
+.yyzz-css .el-form-item__content {
+  padding-left: 15px;
+}
+.area-css .el-input__inner {
+  padding-left: 60px;
+}
+.el-step.is-simple:not(:last-of-type) .el-step__title {
+  max-width: 80% !important;
+}
+.reg-css .el-step.is-simple .el-step__title {
+  font-size: 18px !important;
+}
+.reg-css .el-input__inner {
+  line-height: 32px;
+  height: 32px;
+}
+.reg-css .el-form-item__error {
+  font-size: 14px !important;
+}
+.talSy input {
+  padding-left: 60px;
+}
+.ks-css {
+  .el-form-item__content {
+    display: flex;
+  }
+}
+.del_line::after {
+  content: no-open-quote;
+  position: absolute;
+  top: 51%;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid red;
+}
+.el-link.el-link--success{
+  color: #107c3f;
+}
+.el-link.el-link--success:hover{
+  color: #16954d;
+}
+// .table-fixed {
+//   .el-table__fixed-right {
+//     display: none;
+//   }
+//   .active {
+//     display: block;
+//   }
+// }

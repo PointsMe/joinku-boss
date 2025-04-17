@@ -1,0 +1,6 @@
+[
+    {"type": "TP02", "label": "Pagamento in un'unica soluzione"},
+    {"type": "TP01", "label": "Pagamento a rate"},
+    {"type": "TP03", "label": "Anticipo"}
+  ]
+  

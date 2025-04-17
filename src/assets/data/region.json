@@ -1,0 +1,437 @@
+[{
+  "code": "IT",
+  "name": "Italia",
+  "provinceList": [
+    {
+      "code": "AG",
+      "name": "(AG) Agrigento"
+    },
+    {
+      "code": "AL",
+      "name": "(AL) Alessandria"
+    },
+    {
+      "code": "AN",
+      "name": "(AN) Ancona"
+    },
+    {
+      "code": "AR",
+      "name": "(AR) Arezzo"
+    },
+    {
+      "code": "AO",
+      "name": "(AO) Aosta"
+    },
+    {
+      "code": "AP",
+      "name": "(AP) Ascoli-Piceno"
+    },
+    {
+      "code": "AQ",
+      "name": "(AQ) L'Aquila"
+    },
+    {
+      "code": "AT",
+      "name": "(AT) Asti"
+    },
+    {
+      "code": "AV",
+      "name": "(AV) Avellino"
+    },{
+      "code": "BA",
+      "name": "(BA) Bari"
+    },
+    {
+      "code": "BT",
+      "name": "(BT) Barletta-Andria-Trani"
+    },
+    {
+      "code": "BL",
+      "name": "(BL) Belluno"
+    },
+    {
+      "code": "BN",
+      "name": "(BN) Benevento"
+    },
+    {
+      "code": "BG",
+      "name": "(BG) Bergamo"
+    },
+    {
+      "code": "BI",
+      "name": "(BI) Biella"
+    },
+    {
+      "code": "BO",
+      "name": "(BO) Bologna"
+    },
+    {
+      "code": "BZ",
+      "name": "(BZ) Bolzano"
+    },
+    {
+      "code": "BS",
+      "name": "(BS) Brescia"
+    },
+    {
+      "code": "BR",
+      "name": "(BR) Brindisi"
+    },
+    {
+      "code": "CA",
+      "name": "(CA) Cagliari"
+    },
+    {
+      "code": "CL",
+      "name": "(CL) Caltanissetta"
+    },
+    {
+      "code": "CB",
+      "name": "(CB) Campobasso"
+    },
+    {
+      "code": "CE",
+      "name": "(CE) Caserta"
+    },
+    {
+      "code": "CT",
+      "name": "(CT) Catania"
+    },
+    {
+      "code": "CZ",
+      "name": "(CZ) Catanzaro"
+    },
+    {
+      "code": "CH",
+      "name": "(CH) Chieti"
+    },
+    {
+      "code": "CO",
+      "name": "(CO) Como"
+    },
+    {
+      "code": "CS",
+      "name": "(CS) Cosenza"
+    },
+    {
+      "code": "CR",
+      "name": "(CR) Cremona"
+    },
+    {
+      "code": "CN",
+      "name": "(CN) Cuneo"
+    },
+    {
+      "code": "EN",
+      "name": "(EN) Enna"
+    },
+    {
+      "code": "FM",
+      "name": "(FM) Fermo"
+    },
+    {
+      "code": "FE",
+      "name": "(FE) Ferrara"
+    },
+    {
+      "code": "FI",
+      "name": "(FI) Firenze"
+    },
+    {
+      "code": "FG",
+      "name": "(FG) Foggia"
+    },
+    {
+      "code": "FC",
+      "name": "(FC) Forli-Cesena"
+    },
+    {
+      "code": "FR",
+      "name": "(FR) Frosinone"
+    },
+    {
+      "code": "GE",
+      "name": "(GE) Genova"
+    },
+    {
+      "code": "GO",
+      "name": "(GO) Gorizia"
+    },
+    {
+      "code": "GR",
+      "name": "(GR) Grosseto"
+    },
+    {
+      "code": "IM",
+      "name": "(IM) Imperia"
+    },
+    {
+      "code": "IS",
+      "name": "(IS) Isernia"
+    },
+    {
+      "code": "KR",
+      "name": "(KR) Crotone"
+    },
+    {
+      "code": "LT",
+      "name": "(LT) Latina"
+    },
+    {
+      "code": "LE",
+      "name": "(LE) Lecce"
+    },
+    {
+      "code": "LC",
+      "name": "(LC) Lecco"
+    },
+    {
+      "code": "LI",
+      "name": "(LI) Livorno"
+    },
+    {
+      "code": "LO",
+      "name": "(LO) Lodi"
+    },
+    {
+      "code": "LU",
+      "name": "(LU) Lucca"
+    },
+    {
+      "code": "MC",
+      "name": "(MC) Macerata"
+    },
+    {
+      "code": "MN",
+      "name": "(MN) Mantova"
+    },
+    {
+      "code": "MS",
+      "name": "(MS) Massa-Carrara"
+    },
+    {
+      "code": "MT",
+      "name": "(MT) Matera"
+    },
+    {
+      "code": "ME",
+      "name": "(ME) Messina"
+    },
+    {
+      "code": "MI",
+      "name": "(MI) Milano"
+    },
+    {
+      "code": "MO",
+      "name": "(MO) Modena"
+    },
+    {
+      "code": "MB",
+      "name": "(MB) Monza-Brianza"
+    },
+    {
+      "code": "NA",
+      "name": "(NA) Napoli"
+    },
+    {
+      "code": "NO",
+      "name": "(NO) Novara"
+    },
+    {
+      "code": "NU",
+      "name": "(NU) Nuoro"
+    },
+    {
+      "code": "OR",
+      "name": "(OR) Oristano"
+    },
+    {
+      "code": "PD",
+      "name": "(PD) Padova"
+    },
+    {
+      "code": "PA",
+      "name": "(PA) Palermo"
+    },
+    {
+      "code": "PR",
+      "name": "(PR) Parma"
+    },
+    {
+      "code": "PV",
+      "name": "(PV) Pavia"
+    },
+    {
+      "code": "PG",
+      "name": "(PG) Perugia"
+    },
+    {
+      "code": "PU",
+      "name": "(PU) Pesaro-Urbino"
+    },
+    {
+      "code": "PE",
+      "name": "(PE) Pescara"
+    },
+    {
+      "code": "PC",
+      "name": "(PC) Piacenza"
+    },
+    {
+      "code": "PI",
+      "name": "(PI) Pisa"
+    },
+    {
+      "code": "PT",
+      "name": "(PT) Pistoia"
+    },
+    {
+      "code": "PN",
+      "name": "(PN) Pordenone"
+    },
+    {
+      "code": "PZ",
+      "name": "(PZ) Potenza"
+    },
+    {
+      "code": "PO",
+      "name": "(PO) Prato"
+    },
+    {
+      "code": "RG",
+      "name": "(RG) Ragusa"
+    },
+    {
+      "code": "RA",
+      "name": "(RA) Ravenna"
+    },
+    {
+      "code": "RC",
+      "name": "(RC) Reggio-Calabria"
+    },
+    {
+      "code": "RE",
+      "name": "(RE) Reggio-Emilia"
+    },
+    {
+      "code": "RI",
+      "name": "(RI) Rieti"
+    },
+    {
+      "code": "RN",
+      "name": "(RN) Rimini"
+    },
+    {
+      "code": "RM",
+      "name": "(RM) Roma"
+    },
+    {
+      "code": "RO",
+      "name": "(RO) Rovigo"
+    },
+    {
+      "code": "SA",
+      "name": "(SA) Salerno"
+    },
+    {
+      "code": "SP",
+      "name": "(SP) La Spezia"
+    },
+    {
+      "code": "SS",
+      "name": "(SS) Sassari"
+    },
+    {
+      "code": "SV",
+      "name": "(SV) Savona"
+    },{
+      "code": "SI",
+      "name": "(SI) Siena"
+    },
+    {
+      "code": "SR",
+      "name": "(SR) Siracusa"
+    },
+    {
+      "code": "SO",
+      "name": "(SO) Sondrio"
+    },
+    {
+      "code": "SU",
+      "name": "(SU) Sud Sardegna"
+    },
+    {
+      "code": "TA",
+      "name": "(TA) Taranto"
+    },
+    {
+      "code": "TE",
+      "name": "(TE) Teramo"
+    },
+    {
+      "code": "TR",
+      "name": "(TR) Terni"
+    },
+    {
+      "code": "TO",
+      "name": "(TO) Torino"
+    },
+    {
+      "code": "TP",
+      "name": "(TP) Trapani"
+    },
+    {
+      "code": "TN",
+      "name": "(TN) Trento"
+    },
+    {
+      "code": "TV",
+      "name": "(TV) Treviso"
+    },
+    {
+      "code": "TS",
+      "name": "(TS) Trieste"
+    },
+    {
+      "code": "UD",
+      "name": "(UD) Udine"
+    },
+    {
+      "code": "VA",
+      "name": "(VA) Varese"
+    },
+    {
+      "code": "VE",
+      "name": "(VE) Venezia"
+    },
+    {
+      "code": "VB",
+      "name": "(VB) VerbanoCusioOssola"
+    },
+    {
+      "code": "VC",
+      "name": "(VC) Vercelli"
+    },
+    {
+      "code": "VR",
+      "name": "(VR) Verona"
+    },
+    {
+      "code": "VV",
+      "name": "(VV) Vibo Valentia"
+    },
+    {
+      "code": "VI",
+      "name": "(VI) Vicenza"
+    },
+    {
+      "code": "VT",
+      "name": "(VT) Viterbo"
+    }
+  ],
+  "list": [
+    { "code": "IT",
+      "name": "Italia"
+    }
+  ]
+}]
