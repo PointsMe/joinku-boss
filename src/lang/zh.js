@@ -767,7 +767,6 @@ export default {
         saleMan: '销售',
         serveName: '服务名称',
         serveSerialNum: '服务编号',
-        trialDeadlineT: '试用期(天)',
         annualFee: '年费',
         serveDesc: '服务描述',
         addServe: '添加服务',
@@ -973,6 +972,9 @@ export default {
         latitude: '纬度',
         mapSearch: '地图位置搜索',
         virPhoneNum: '虚拟电话号',
+        trialDeadlineT: '试用期',
+        day: '天',
+        ifMerServe: '是否为商家服务'
     },
     route: {
         home: '概述',

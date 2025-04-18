@@ -48,11 +48,11 @@ import moment from 'moment';
 export default {
     name: 'SubscDetails',
     props: {
-        parentDialog: {
+        showDialog: {
             type: Boolean,
             default: true
         },
-        parentId: {
+        serviceId: {
             type: String,
             default: ''
         },
@@ -74,7 +74,7 @@ export default {
     mounted () { },
     components: {},
     watch: {
-        parentDialog (val) {
+        showDialog (val) {
             if (val) {
                 this.initData()
             }
@@ -89,7 +89,7 @@ export default {
         // 获取详情
         getDetails () {
             const params = {
-                id: this.parentId
+                id: this.serviceId
             }
             queryMerSubServeDetails(params).then((res) => {
                 if (Number(res.code) === 20000) {

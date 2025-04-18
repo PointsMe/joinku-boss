@@ -1308,11 +1308,11 @@ export function renewApprovalCancel(data) {
  * @param data
  * @returns {*}
  */
-export function queryMerMayServe(data) {
+export function queryMerMayServe(params) {
     return request({
         url: 'api/v1/merchant/service/subscribable/preSubscribe',
         method: 'post',
-        params: data
+        data: params
     });
 }
 
@@ -1402,4 +1402,26 @@ export function getCityList(data) {
     method: "get",
     params: data
   });
+}
+
+/**
+ * 查询商家订阅编号
+ * @returns {*}
+ */
+export function queryMerchantSubscribeNo() {
+    return request({
+        url: "api/v1/merchant/service/subscribable/selector",
+        method: "post"
+    });
+}
+
+/**
+ * 查询商家可订阅编号
+ * @returns {*}
+ */
+export function queryMerchantCanSubscribeNo() {
+    return request({
+        url: "api/v1/merchant/service/subscribable/preSelector",
+        method: "post"
+    });
 }

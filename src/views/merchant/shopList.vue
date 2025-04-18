@@ -134,10 +134,13 @@
                 <template slot-scope="scope">
                     <span>{{ scope.row.createdAt | timeChange }}</span>
                 </template>
-            </el-table-column> 
+            </el-table-column>
             <el-table-column align="center" header-align="center" width="200" :label="$t('common.cz')" fixed="right">
               <template slot-scope="scope">
                 <el-button size="mini" type="text" @click="showDeviceLicence(scope.row)">{{ $t("common.licence") }}</el-button>
+                  <el-button type="text" size="mini"
+                             @click="subscHandle(scope.row.merchantId, scope.row.id);">{{ $t('common.subscServe') }}
+                  </el-button>
                 <el-button size="mini" type="text" @click="revise(scope.row)">{{$t("common.xg")}}</el-button>
               </template>
             </el-table-column>
@@ -156,6 +159,12 @@
         </div>
       </el-main>
       <Host :showHost="showHost" :chooseItem="chooseItem" @closeHost="closeHost"></Host>
+        <!-- 已订阅服务 -->
+        <Subsc
+            :showDialog="subscDialog"
+            :merchantId="merchantId"
+            :shopId="itemId"
+            @parent-close="subscDialog = false"/>
     </el-container>
   </template>
   <script>
@@ -165,11 +174,13 @@
     getCountryList
   } from "@/api/api";
   import Host from '@/views/components/host';
+  import Subsc from "@/components/merchant/merchant/Subsc";
   var moment = require("moment");
   export default {
     name: "shopList",
     components: {
-        Host
+        Host,
+        Subsc
     },
     data() {
       return {
@@ -190,6 +201,9 @@
           },
           showHost:false,
           chooseItem:'',
+          merchantId: '',
+          itemId: '',
+          subscDialog: false
       };
     },
     methods: {
@@ -279,6 +293,12 @@
             this.chooseItem = dt;
             this.showHost = true;
         },
+        // 已订阅服务
+        subscHandle(merchantId, id) {
+            this.merchantId = merchantId
+            this.itemId = id
+            this.subscDialog = true
+        },
         closeHost(){
             this.showHost = false;
             this.chooseItem = '';
@@ -339,6 +359,5 @@
     }
 }
   </style>
-  
   
   

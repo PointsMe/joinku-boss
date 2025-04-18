@@ -4,13 +4,13 @@
                :close-on-click-modal="false"
                @close="dialogClose"
                center
-               custom-class="medium-dialog">
+               width="600px">
         <div class="content">
             <el-form :model="formData"
                      size="mini"
                      :rules="rules"
                      ref="ruleForm"
-                     label-width="110px">
+                     label-width="auto">
                 <el-form-item :label="$t('common.type')"
                               prop="type">
                     <el-select v-model="formData.type">
@@ -22,10 +22,8 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item :label="$t('common.annualFee')"
-                              prop="amount">
-                    <el-input v-model="formData.amount"
-                              autocomplete="off" v-input-float>
+                <el-form-item :label="$t('common.annualFee')" prop="amount">
+                    <el-input v-model="formData.amount" autocomplete="off">
                         <template slot="append">€</template>
                     </el-input>
                 </el-form-item>
@@ -43,8 +41,9 @@
                               prop="remark">
                     <el-input
                         type="textarea"
-                        v-model="formData.remark"
-                        autocomplete="off"></el-input>
+                        rows="3"
+                        maxlength="300"
+                        v-model="formData.remark"></el-input>
                 </el-form-item>
             </el-form>
         </div>
@@ -73,7 +72,7 @@ import moment from 'moment';
 export default {
     name: 'SubscRenew',
     props: {
-        parentDialog: {
+        showDialog: {
             type: Boolean,
             default: true
         },
@@ -81,12 +80,27 @@ export default {
             type: String,
             default: true
         },
+        shopId: {
+            type: String,
+            default: ''
+        },
         serviceId: {
             type: String,
             default: true
         },
     },
     data () {
+        let validatorFloat = (rule, value, callback) => {
+            if (!value && value !== 0) {
+                return callback(new Error(this.$t('common.qsrnr')));
+            }
+            const reg = /^(0\.\d*[1-9]\d*|[1-9]\d*\.\d+|[1-9]\d*)$/
+            if (reg.test(value)) {
+                callback()
+            } else {
+                callback(new Error(this.$t('common.srbhf')))
+            }
+        };
         return {
             dialogVisible: false,
             typeOptions: [
@@ -120,7 +134,7 @@ export default {
             },
             rules: {
                 type: [{ required: true, message: this.$t('common.qxz'), trigger: 'chang' }],
-                amount: [{ required: true, message: this.$t('common.qsrnr'), trigger: 'blur' }],
+                amount: [{ required: true, validator: validatorFloat, trigger: 'blur' }],
                 endDate: [{ required: true, message: this.$t('common.chooseDt'), trigger: 'chang' }],
             },
             disabled: false,
@@ -130,7 +144,7 @@ export default {
     mounted () { },
     components: {},
     watch: {
-        parentDialog (val) {
+        showDialog (val) {
             if (val) {
                 this.initData()
             }
@@ -160,6 +174,7 @@ export default {
             let endDate = moment(this.formData.endDate).format('YYYY-MM-DDTHH:mm:ssZZ')
             const params = {
                 merchantId: this.merchantId,
+                shopId: this.shopId,
                 serviceId: this.serviceId,
                 type: this.formData.type,
                 amount: this.formData.amount,
@@ -195,5 +210,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+/deep/ .el-form{
+    .el-select{
+        width: 100%;
+    }
+}
 </style>

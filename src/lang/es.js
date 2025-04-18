@@ -767,7 +767,6 @@ export default {
         saleMan: 'Venta',
         serveName:'Nombre del Servicio',
         serveSerialNum:  'ID de servicio',
-        trialDeadlineT:  'Período de prueba (días)',
         annualFee:  'Cuota anual',
         serveDesc:  'Descripción del servicio',
         addServe:  'Añadir servicio',
@@ -973,6 +972,8 @@ export default {
         latitude: 'latitud',
         mapSearch: 'Búsqueda de ubicación en el mapa',
         virPhoneNum: 'Número de teléfono virtual',
+        trialDeadlineT: 'Período de prueba',
+        day: 'Día'
     },
     route: {
         home: 'Descripción general',

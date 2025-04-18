@@ -193,8 +193,8 @@
         </el-dialog>
         <!-- 已订阅服务 -->
         <Subsc
-            :parent-dialog="subscDialog"
-            :parent-id="itemId"
+            :showDialog="subscDialog"
+            :merchantId="itemId"
             @parent-close="subscDialog = false"/>
     </el-container>
 </template>

@@ -2,60 +2,67 @@
     <div class="container">
         <div class="container-header">
             <div class="search">
-                <div class="search-form">
-                    <div class="form-item">
-                        <span class="form-item-lable">{{ $t('common.serveName') }}</span>
-                        <el-input v-model="search.name" size="mini" clearable></el-input>
-                    </div>
-                    <div class="form-item">
-                        <span class="form-item-lable">{{ $t('common.serveSerialNum') }}</span>
-                        <el-input v-model="search.code" size="mini" clearable></el-input>
-                    </div>
+                <div class="search-item">
+                    <span class="label">{{ $t('common.serveName') }}</span>
+                    <el-input v-model="search.name" size="mini" clearable></el-input>
+                </div>
+                <div class="search-item">
+                    <span class="label">{{ $t('common.serveSerialNum') }}</span>
+                    <el-input v-model="search.code" size="mini" clearable></el-input>
                 </div>
                 <div class="search-handle">
                     <el-button type="primary" size="mini" @click="searchHandle()">{{$t('common.sousuo')}}</el-button>
                     <el-button type="primary" size="mini" @click="emptyHandle()">{{$t('common.qk')}}</el-button>
-                    <el-button type="primary" size="mini" @click="addDialog = true">{{$t('common.add')}}</el-button>
+                    <el-button type="primary" size="mini" @click="addHandle">{{$t('common.add')}}</el-button>
                 </div>
             </div>
         </div>
         <div class="container-main">
-            <el-table
-                :data="tableData"
-                style="width: 100%">
-                <el-table-column type="index" align="center" width="60"></el-table-column>
-                <el-table-column prop="name" :label="$t('common.serveName')" align="center" min-width="180" show-overflow-tooltip></el-table-column>
-                <el-table-column prop="code" :label="$t('common.serveSerialNum')" align="center" min-width="150" show-overflow-tooltip></el-table-column>
-                <el-table-column prop="freeTime" :label="$t('common.trialDeadlineT')" align="center" min-width="150" show-overflow-tooltip></el-table-column>
-                <el-table-column prop="amount" :label="$t('common.annualFee') + '（€）'" align="center" min-width="150" show-overflow-tooltip></el-table-column>
-                <el-table-column :label="$t('common.creatTime')" align="center" width="220">
-                    <template slot-scope="scope">
-                        <span>{{ scope.row.createdAt | filterTime }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="description" :label="$t('common.serveDesc')" align="center" min-width="180" show-overflow-tooltip></el-table-column>
-                <el-table-column
-                    class-name="handle"
-                    :label="$t('common.cz')"
-                    align="center"
-                    fixed="right"
-                    width="180">
-                    <template slot-scope="scope">
-                        <el-button
-                            type="text"
-                            size="mini"
-                            @click="editHandle(scope.row.id)"
-                        >{{ $t('common.xg') }}
-                        </el-button>
-                        <el-button
-                            type="text"
-                            size="mini"
-                            @click="deleteHandle(scope.row.id)"
-                        >{{ $t('common.sc') }}
-                        </el-button>
-                    </template>
-                </el-table-column>
-            </el-table>
+            <div class="table" ref="tableContainer">
+                <el-table
+                    :data="tableData"
+                    border
+                    :max-height="tableHeight"
+                    style="width: 100%">
+                    <el-table-column prop="name" :label="$t('common.serveName')" align="center" min-width="180"></el-table-column>
+                    <el-table-column prop="code" :label="$t('common.serveSerialNum')" align="center" width="120"></el-table-column>
+                    <el-table-column prop="freeTime" :label="$t('common.trialDeadlineT')" align="center" width="120"></el-table-column>
+                    <el-table-column prop="amount" :label="$t('common.annualFee') + '（€）'" align="center" width="120"></el-table-column>
+                    <el-table-column prop="amount" :label="$t('common.ifMerServe')" align="center" width="150">
+                        <template slot-scope="scope">
+                            <span v-if="scope.row.ifMerchant">{{ $t('common.yes') }}</span>
+                            <span v-else>{{ $t('common.fou') }}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column :label="$t('common.creatTime')" align="center" width="180">
+                        <template slot-scope="scope">
+                            <span>{{ scope.row.createdAt | filterTime }}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="description" :label="$t('common.serveDesc')" align="center" min-width="180"></el-table-column>
+                    <el-table-column
+                        class-name="handle"
+                        :label="$t('common.cz')"
+                        align="center"
+                        fixed="right"
+                        width="180">
+                        <template slot-scope="scope">
+                            <el-button
+                                type="text"
+                                size="mini"
+                                @click="editHandle(scope.row.id)"
+                            >{{ $t('common.xg') }}
+                            </el-button>
+                            <el-button
+                                type="text"
+                                size="mini"
+                                @click="deleteHandle(scope.row.id)"
+                            >{{ $t('common.sc') }}
+                            </el-button>
+                        </template>
+                    </el-table-column>
+                </el-table>
+            </div>
             <div class="pagination">
                 <el-pagination
                     background
@@ -68,15 +75,10 @@
                 </el-pagination>
             </div>
         </div>
-        <!-- 添加 -->
-        <Add
-            :parent-dialog="addDialog"
-            @parent-update="getListData()"
-            @parent-close="addDialog = false"/>
         <!-- 编辑 -->
         <Edit
-            :parent-dialog="editDialog"
-            :parent-id="itemId"
+            :showDialog="editDialog"
+            :itemId="itemId"
             @parent-update="getListData()"
             @parent-close="editDialog = false"/>
     </div>
@@ -85,14 +87,12 @@
 <script>
 import {querySubscribableList, deleteSubscribable} from '@/api/api';
 import moment from 'moment';
-import Add from "@/components/merchant/subscribable/Add";
 import Edit from "@/components/merchant/subscribable/Edit";
 
 export default {
     name: 'Subscribable',
     // 组件
     components: {
-        Add,
         Edit
     },
     props: {},
@@ -103,10 +103,10 @@ export default {
                 code: ''
             },
             tableData: [],
+            tableHeight: 520,
             currentPage: 1,
             total: 0,
             pageSize: 10,
-            addDialog: false,
             editDialog: false,
             itemId: '',
         };
@@ -134,6 +134,15 @@ export default {
     },
     // 方法集合
     methods: {
+        // 获取表格高度
+        getTableHeight() {
+            if (this.$refs.tableContainer) {
+                const tableHeight = this.$refs.tableContainer.offsetHeight
+                this.$nextTick(() => {
+                    this.tableHeight = tableHeight
+                });
+            }
+        },
         // 获取数据列表
         getListData() {
             const params = {
@@ -191,6 +200,11 @@ export default {
             // 设置页码
             this.currentPage = page
         },
+        // 新增
+        addHandle () {
+            this.itemId = ''
+            this.editDialog = true
+        },
         // 修改
         editHandle (id) {
             this.itemId = id
@@ -229,7 +243,10 @@ export default {
     },
     // 挂载完成
     mounted() {
+        // 获取列表数据
         this.getListData()
+        // 获取表格高度
+        this.getTableHeight()
     },
     // 销毁之前
     beforeDestroy() {
@@ -238,55 +255,141 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div{
+div,
+span {
     box-sizing: border-box;
 }
-.container{
+
+i {
+    font-style: normal;
+}
+
+.container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 20px 30px;
-    .container-header{
+    padding: 0 20px;
+    
+    .container-header {
         flex-shrink: 0;
         padding-bottom: 20px;
-        .search{
-            padding: 5px 20px;
-            background: #FFFFFF;
-            .search-form{
-                width: 100%;
+        
+        .search {
+            flex-shrink: 0;
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #fff;
+            
+            .search-item {
+                height: 45px;
                 display: flex;
-                flex-wrap: wrap;
-                .form-item{
-                    height: 45px;
-                    display: flex;
-                    align-items: center;
-                    margin-right: 20px;
-                    .form-item-lable{
-                        font-size: 12px;
-                        margin-right: 5px;
-                        flex-shrink: 0;
-                    }
-                    ::v-deep .el-input{
-                        width: 160px;
-                    }
+                align-items: center;
+                margin-right: 30px;
+                
+                .label {
+                    font-size: 14px;
+                    margin-right: 5px;
+                }
+                
+                /deep/ .el-input {
+                    width: 160px;
                 }
             }
-            .search-handle{
-                width: 100%;
+            
+            .search-handle {
                 height: 45px;
                 display: flex;
                 align-items: center;
             }
         }
     }
-    .container-main{
+    
+    .container-main {
         flex-grow: 1;
-        overflow-y: auto;
         background: #FFFFFF;
-        padding: 20px;
-        .pagination{
-            text-align: right;
+        padding: 10px 20px;
+        
+        .table {
+            height: calc(100% - 60px);
+            /deep/ .el-table{
+                .custom-cell{
+                    .cell{
+                        overflow: visible;
+                    }
+                }
+            }
+            .info-cell {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                
+                .picture {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 6px;
+                    flex-shrink: 0;
+                    
+                    .el-image {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 6px;
+                    }
+                    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 6px;
+                        object-fit: contain;
+                    }
+                }
+                
+                .desc {
+                    flex-grow: 1;
+                    min-height: 100%;
+                    display: flex;
+                    padding-left: 10px;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: start;
+                    
+                    .el-tag {
+                        margin-bottom: 6px;
+                    }
+                    
+                    .desc-item {
+                        margin-bottom: 6px;
+                        
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+                    }
+                    
+                    .desc-title {
+                        font-size: 14px;
+                        color: #272727;
+                    }
+                    
+                    .desc-text {
+                        font-size: 13px;
+                        color: #606266;
+                    }
+                }
+            }
+            
+            .danger {
+                color: red;
+            }
+        }
+        
+        .pagination {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
         }
     }
 }

@@ -95,20 +95,22 @@
         </el-dialog>
         <!-- 添加服务 -->
         <AddSubsc
-            :parent-dialog="addDialog"
-            :parent-id="parentId"
+            :showDialog="addDialog"
+            :merchantId="merchantId"
+            :shopId="shopId"
             @parent-update="getListData"
             @parent-close="addDialog = false"/>
         <!-- 服务详情 -->
         <SubscDetails
-            :parent-dialog="detailsDialog"
-            :parent-id="itemId"
+            :showDialog="detailsDialog"
+            :serviceId="serviceId"
             @parent-close="detailsDialog = false"/>
         <!-- 服务续费 -->
         <SubscRenew
-            :parent-dialog="renewDialog"
-            :merchant-id="parentId"
-            :service-id="serviceId"
+            :showDialog="renewDialog"
+            :merchantId="merchantId"
+            :shopId="shopId"
+            :serviceId="serviceId"
             @parent-update="getListData"
             @parent-close="renewDialog = false"/>
     </div>
@@ -120,26 +122,29 @@ import {
     deleteMerSubServe
 } from "@/api/api";
 import moment from 'moment';
-import AddSubsc from "@/components/merchant/merchant/AddSubsc";
-import SubscDetails from "@/components/merchant/merchant/SubscDetails";
-import SubscRenew from "@/components/merchant/merchant/SubscRenew";
+import AddSubsc from "./AddSubsc";
+import SubscDetails from "./SubscDetails";
+import SubscRenew from "./SubscRenew";
 export default {
     name: 'Subsc',
     props: {
-        parentDialog: {
+        showDialog: {
             type: Boolean,
             default: true
         },
-        parentId: {
+        merchantId: {
             type: String,
             default: ''
-        }
+        },
+        shopId: {
+            type: String,
+            default: ''
+        },
     },
     data () {
         return {
             dialogVisible: false,
             tableData: [],
-            itemId: '',
             serviceId: '',
             addDialog: false,
             detailsDialog: false,
@@ -171,7 +176,7 @@ export default {
         }
     },
     watch: {
-        parentDialog (val) {
+        showDialog (val) {
             if (val) {
                 this.initData()
             }
@@ -187,8 +192,8 @@ export default {
         // 获取订阅服务列表
         getListData () {
             const params = {
-                merchantId: this.parentId,
-                shopId: '',
+                merchantId: this.merchantId,
+                shopId: this.shopId,
                 serviceId: ''
             }
             queryMerSubServe(params).then((res) => {
@@ -207,7 +212,7 @@ export default {
         },
         // 详情
         detailsHandle (id) {
-            this.itemId = id
+            this.serviceId = id
             this.detailsDialog = true
         },
         // 续费
@@ -251,10 +256,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+/deep/ .el-dialog{
+    .el-dialog__body{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
 .content{
     .search{
         width: 100%;
-        height: 60px;
+        height: 50px;
         text-align: right;
     }
 }

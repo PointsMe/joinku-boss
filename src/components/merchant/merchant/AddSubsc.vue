@@ -9,12 +9,9 @@
             <el-table
                 :data="tableData"
                 border
+                size="mini"
                 style="width: 100%"
                 max-height="480">
-                <el-table-column
-                    type="index"
-                    width="50">
-                </el-table-column>
                 <el-table-column
                     prop="name"
                     :label="$t('common.serveName')"
@@ -85,14 +82,18 @@ import {createMerSubServe} from "../../../api/api";
 export default {
     name: 'AddSubsc',
     props: {
-        parentDialog: {
+        showDialog: {
             type: Boolean,
             default: true
         },
-        parentId: {
+        merchantId: {
             type: String,
             default: ''
-        }
+        },
+        shopId: {
+            type: String,
+            default: ''
+        },
     },
     data () {
         return {
@@ -121,7 +122,7 @@ export default {
         }
     },
     watch: {
-        parentDialog (val) {
+        showDialog (val) {
             if (val) {
                 this.initData()
             }
@@ -137,7 +138,8 @@ export default {
         // 获取可订阅服务列表
         getListData () {
             const params = {
-                merchantId: this.parentId
+                merchantId: this.merchantId,
+                shopId: this.shopId
             }
             queryMerMayServe(params).then((res) => {
                 if (Number(res.code) === 20000) {
@@ -156,7 +158,8 @@ export default {
         // 选择
         selectHandle (id) {
             const params = {
-                merchantId: this.parentId,
+                merchantId: this.merchantId,
+                shopId: this.shopId,
                 serviceId: id
             }
             createMerSubServe(params).then((res) => {
