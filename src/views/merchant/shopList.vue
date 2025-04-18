@@ -168,7 +168,6 @@
     </el-container>
   </template>
   <script>
-  import Vue from "vue";
   import {
     o2oShopPage,
     getCountryList
