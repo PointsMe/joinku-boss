@@ -974,6 +974,15 @@ export default {
         virPhoneNum: 'Numero di telefono virtuale',
         trialDeadlineT: 'Periodo di prova',
         day: 'Giorno',
+        ifMerServe: 'È un servizio per commercianti',
+        serverSide: 'Lato server',
+        clientSide: 'Lato client',
+        forceUpdate: 'Aggiornamento forzato',
+        updateContent: 'Contenuto dell\'aggiornamento',
+        uploadFile: 'Carica file',
+        suchVersion: 'Ad esempio 1.0.0',
+        updateTime: 'Ora dell\'aggiornamento',
+        choiceFile: 'Scegli file',
     },
     route: {
         home: 'Panoramica',
@@ -1026,5 +1035,6 @@ export default {
         merchantList:  'Elenco dei rivenditori',
         subscribableServe:  'Servizio in abbonamento',
         renewApproval:  'Rinnovo Approvazione',
+        upgradeList: 'Elenco aggiornamenti'
     }
 }

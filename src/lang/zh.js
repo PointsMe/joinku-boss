@@ -974,7 +974,15 @@ export default {
         virPhoneNum: '虚拟电话号',
         trialDeadlineT: '试用期',
         day: '天',
-        ifMerServe: '是否为商家服务'
+        ifMerServe: '是否为商家服务',
+        serverSide: '服务端',
+        clientSide: '客户端',
+        forceUpdate: '强制更新',
+        updateContent: '更新内容',
+        uploadFile: '上传文件',
+        suchVersion: '例如1.0.0',
+        updateTime: '更新时间',
+        choiceFile: '选择文件',
     },
     route: {
         home: '概述',
@@ -1027,5 +1035,6 @@ export default {
         merchantList: '零售商列表',
         subscribableServe: '可订阅服务',
         renewApproval: '续费审批',
+        upgradeList: '升级列表',
     }
 };

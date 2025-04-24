@@ -1425,3 +1425,76 @@ export function queryMerchantCanSubscribeNo() {
         method: "post"
     });
 }
+
+/**
+ * 查询门店升级列表
+ * @returns {*}
+ */
+export function queryShopUpgrade(params) {
+    return request({
+        url: "api/v1/offline/shop/upgrade/page",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 创建门店升级
+ * @returns {*}
+ */
+export function createShopUpgrade(params) {
+    return request({
+        url: "api/v1/offline/shop/upgrade/create",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 更新门店升级
+ * @returns {*}
+ */
+export function updateShopUpgrade(params) {
+    return request({
+        url: "api/v1/offline/shop/upgrade/update",
+        method: "post",
+        data: params
+    });
+}
+
+
+/**
+ * 查询门店升级详情
+ * @returns {*}
+ */
+export function queryShopUpgradeDetail(params) {
+    return request({
+        url: "api/v1/offline/shop/upgrade/detail",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 删除门店升级
+ * @returns {*}
+ */
+export function deleteShopUpgrade(params) {
+    return request({
+        url: "api/v1/offline/shop/upgrade/delete",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 上传文件
+ * @returns {*}
+ */
+export function uploadFile(params) {
+    return request({
+        url: "api/v3/upload/file",
+        method: "post",
+        data: params
+    });
+}

@@ -973,7 +973,16 @@ export default {
         mapSearch: 'Kartenstandortsuche',
         virPhoneNum: 'Virtuelle Telefonnummer',
         trialDeadlineT: 'Probezeit',
-        day: 'Tag'
+        day: 'Tag',
+        ifMerServe: 'Ist Händlerdienst',
+        serverSide: 'Serverseite',
+        clientSide: 'Clientseite',
+        forceUpdate: 'Erzwungenes Update',
+        updateContent: 'Update-Inhalt',
+        uploadFile: 'Datei hochladen',
+        suchVersion: 'Zum Beispiel 1.0.0',
+        updateTime: 'Aktualisierungszeit',
+        choiceFile: 'Datei auswählen',
     },
     route: {
         home: 'Überblick',
@@ -1026,5 +1035,6 @@ export default {
         merchantList:  'Liste der Einzelhändler',
         subscribableServe:  'Abo-Service',
         renewApproval:  'Erneuerungsgenehmigung',
+        upgradeList: 'Aktualisierungsliste'
     }
 }

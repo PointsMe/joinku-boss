@@ -974,6 +974,15 @@ export default {
         virPhoneNum: 'Virtual Phone Number',
         trialDeadlineT: 'Trial Period',
         day: 'Day',
+        ifMerServe: 'Is merchant service',
+        serverSide: 'Server side',
+        clientSide: 'Client side',
+        forceUpdate: 'Force update',
+        updateContent: 'Update content',
+        uploadFile: 'Upload file',
+        suchVersion: 'For example 1.0.0',
+        updateTime: 'Update time',
+        choiceFile: 'Choose file',
     },
     route: {
         home: 'Overview',
@@ -1026,5 +1035,6 @@ export default {
         merchantList:  'List of retailers',
         subscribableServe:  'Subscription service',
         renewApproval:  'Renewal Approval',
+        upgradeList: 'Upgrade list',
     }
 }

@@ -973,7 +973,16 @@ export default {
         mapSearch: 'Búsqueda de ubicación en el mapa',
         virPhoneNum: 'Número de teléfono virtual',
         trialDeadlineT: 'Período de prueba',
-        day: 'Día'
+        day: 'Día',
+        ifMerServe: '¿Es un servicio para comerciantes?',
+        serverSide: 'Lado del servidor',
+        clientSide: 'Lado del cliente',
+        forceUpdate: 'Actualización forzada',
+        updateContent: 'Contenido de la actualización',
+        uploadFile: 'Subir archivo',
+        suchVersion: 'Por ejemplo 1.0.0',
+        updateTime: 'Hora de actualización',
+        choiceFile: 'Elegir archivo',
     },
     route: {
         home: 'Descripción general',
@@ -1026,5 +1035,6 @@ export default {
         merchantList:  'Lista de minoristas',
         subscribableServe:  'Servicio de suscripcion',
         renewApproval:  'Aprobación de renovación',
+        upgradeList: 'Lista de actualizaciones'
     }
 }

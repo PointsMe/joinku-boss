@@ -2,103 +2,97 @@
     <div class="container">
         <!--<div class="container-header">-->
         <!--    <div class="search">-->
-        <!--        <div class="search-form">-->
-        <!--            <div class="form-item">-->
-        <!--                <span class="form-item-lable">{{ $t('common.serveName') }}</span>-->
-        <!--                <el-input v-model="search.name" size="mini" clearable></el-input>-->
-        <!--            </div>-->
-        <!--            <div class="form-item">-->
-        <!--                <span class="form-item-lable">{{ $t('common.serveSerialNum') }}</span>-->
-        <!--                <el-input v-model="search.code" size="mini" clearable></el-input>-->
-        <!--            </div>-->
+        <!--        <div class="search-item">-->
+        <!--            <span class="label">{{ $t('common.serveName') }}</span>-->
+        <!--            <el-input v-model="search.name" size="mini" clearable></el-input>-->
+        <!--        </div>-->
+        <!--        <div class="search-item">-->
+        <!--            <span class="label">{{ $t('common.serveSerialNum') }}</span>-->
+        <!--            <el-input v-model="search.code" size="mini" clearable></el-input>-->
         <!--        </div>-->
         <!--        <div class="search-handle">-->
         <!--            <el-button type="primary" size="mini" @click="searchHandle()">{{$t('common.sousuo')}}</el-button>-->
         <!--            <el-button type="primary" size="mini" @click="emptyHandle()">{{$t('common.qk')}}</el-button>-->
-        <!--            <el-button type="primary" size="mini" @click="addDialog = true">{{$t('common.add')}}</el-button>-->
         <!--        </div>-->
         <!--    </div>-->
         <!--</div>-->
         <div class="container-main">
-            <el-table
-                :data="tableData"
-                style="width: 100%">
-                <el-table-column type="index" align="center" width="60"></el-table-column>
-                <el-table-column prop="serviceName" :label="$t('common.serveName')" align="center" min-width="180" show-overflow-tooltip></el-table-column>
-                <el-table-column prop="merchantName" :label="$t('common.merchantName')" align="center" min-width="180" show-overflow-tooltip></el-table-column>
-                <el-table-column :label="$t('common.origin')" align="center" width="150">
-                    <template slot-scope="scope">
-                        <span v-if="scope.row.source === 101">Boss</span>
-                        <span v-else-if="scope.row.source === 102">App</span>
-                        <span v-else-if="scope.row.source === 103">{{ $t('common.invite') }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column :label="$t('common.type')" align="center" width="150">
-                    <template slot-scope="scope">
-                        <span v-if="scope.row.type === 101">{{ $t('common.presented') }}</span>
-                        <span v-else-if="scope.row.type === 102">{{ $t('common.slotCard') }}</span>
-                        <span v-else-if="scope.row.type === 103">{{ $t('common.remittance') }}</span>
-                        <span v-else-if="scope.row.type === 104">{{ $t('common.cash') }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column :label="$t('common.jsrq')" align="center" width="150">
-                    <template slot-scope="scope">
-                        <span>{{ scope.row.endDate | filterDate }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="creatorName" :label="$t('common.requester')" align="center" min-width="140" show-overflow-tooltip></el-table-column>
-                <el-table-column :label="$t('common.creatTime')" align="center" width="220">
-                    <template slot-scope="scope">
-                        <span>{{ scope.row.createdAt | filterTime }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column :label="$t('common.zt')" align="center" width="150">
-                    <template slot-scope="scope">
-                        <span v-if="scope.row.state === 101">{{ $t('common.waitReview2') }}</span>
-                        <span v-else-if="scope.row.state === 102">{{ $t('common.reviewPass2') }}</span>
-                        <span v-else-if="scope.row.state === 103">{{ $t('common.reviewNotPass') }}</span>
-                        <span v-else-if="scope.row.state === 104">{{ $t('common.annulla') }}</span>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="auditorName" :label="$t('common.approver')" align="center" min-width="150" show-overflow-tooltip></el-table-column>
-                <el-table-column prop="remark" :label="$t('common.bz')" align="center" min-width="150" show-overflow-tooltip></el-table-column>
-                <el-table-column
-                    class-name="handle"
-                    :label="$t('common.cz')"
-                    align="center"
-                    fixed="right"
-                    width="220">
-                    <template slot-scope="scope">
-                        <!--<el-button-->
-                        <!--    type="text"-->
-                        <!--    size="mini"-->
-                        <!--    @click="detailsHandle(scope.row.id)"-->
-                        <!--&gt;{{ $t('common.detail') }}-->
-                        <!--</el-button>-->
-                        <el-button
-                            type="text"
-                            size="mini"
-                            @click="passHandle(scope.row.id)"
-                            v-if="scope.row.state === 101"
-                        >{{ $t('common.pass') }}
-                        </el-button>
-                        <el-button
-                            type="text"
-                            size="mini"
-                            @click="noPassHandle(scope.row.id)"
-                            v-if="scope.row.state === 101"
-                        >{{ $t('common.noPass') }}
-                        </el-button>
-                        <el-button
-                            type="text"
-                            size="mini"
-                            @click="cancelHandle(scope.row.id)"
-                            v-if="scope.row.state === 101"
-                        >{{ $t('common.annulla') }}
-                        </el-button>
-                    </template>
-                </el-table-column>
-            </el-table>
+            <div class="table" ref="tableContainer">
+                <el-table
+                    :data="tableData"
+                    :max-height="tableHeight"
+                    style="width: 100%">
+                    <el-table-column type="index" align="center" width="60"></el-table-column>
+                    <el-table-column prop="serviceName" :label="$t('common.serveName')" align="center" min-width="180" show-overflow-tooltip></el-table-column>
+                    <el-table-column prop="merchantName" :label="$t('common.merchantName')" align="center" min-width="180" show-overflow-tooltip></el-table-column>
+                    <el-table-column :label="$t('common.origin')" align="center" width="150">
+                        <template slot-scope="scope">
+                            <span v-if="scope.row.source === 101">Boss</span>
+                            <span v-else-if="scope.row.source === 102">App</span>
+                            <span v-else-if="scope.row.source === 103">{{ $t('common.invite') }}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column :label="$t('common.type')" align="center" width="150">
+                        <template slot-scope="scope">
+                            <span v-if="scope.row.type === 101">{{ $t('common.presented') }}</span>
+                            <span v-else-if="scope.row.type === 102">{{ $t('common.slotCard') }}</span>
+                            <span v-else-if="scope.row.type === 103">{{ $t('common.remittance') }}</span>
+                            <span v-else-if="scope.row.type === 104">{{ $t('common.cash') }}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column :label="$t('common.jsrq')" align="center" width="150">
+                        <template slot-scope="scope">
+                            <span>{{ scope.row.endDate | filterDate }}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="creatorName" :label="$t('common.requester')" align="center" min-width="140" show-overflow-tooltip></el-table-column>
+                    <el-table-column :label="$t('common.creatTime')" align="center" width="220">
+                        <template slot-scope="scope">
+                            <span>{{ scope.row.createdAt | filterTime }}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column :label="$t('common.zt')" align="center" width="150">
+                        <template slot-scope="scope">
+                            <span v-if="scope.row.state === 101">{{ $t('common.waitReview2') }}</span>
+                            <span v-else-if="scope.row.state === 102">{{ $t('common.reviewPass2') }}</span>
+                            <span v-else-if="scope.row.state === 103">{{ $t('common.reviewNotPass') }}</span>
+                            <span v-else-if="scope.row.state === 104">{{ $t('common.annulla') }}</span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column prop="auditorName" :label="$t('common.approver')" align="center" min-width="150" show-overflow-tooltip></el-table-column>
+                    <el-table-column prop="remark" :label="$t('common.bz')" align="center" min-width="150" show-overflow-tooltip></el-table-column>
+                    <el-table-column
+                        class-name="handle"
+                        :label="$t('common.cz')"
+                        align="center"
+                        fixed="right"
+                        width="220">
+                        <template slot-scope="scope">
+                            <el-button
+                                type="text"
+                                size="mini"
+                                @click="passHandle(scope.row.id)"
+                                v-if="scope.row.state === 101"
+                            >{{ $t('common.pass') }}
+                            </el-button>
+                            <el-button
+                                type="text"
+                                size="mini"
+                                @click="noPassHandle(scope.row.id)"
+                                v-if="scope.row.state === 101"
+                            >{{ $t('common.noPass') }}
+                            </el-button>
+                            <el-button
+                                type="text"
+                                size="mini"
+                                @click="cancelHandle(scope.row.id)"
+                                v-if="scope.row.state === 101"
+                            >{{ $t('common.annulla') }}
+                            </el-button>
+                        </template>
+                    </el-table-column>
+                </el-table>
+            </div>
             <div class="pagination">
                 <el-pagination
                     background
@@ -111,11 +105,6 @@
                 </el-pagination>
             </div>
         </div>
-        <!-- 详情 -->
-        <!--<Edit-->
-        <!--    :parent-dialog="detailsDialog"-->
-        <!--    :parent-id="itemId"-->
-        <!--    @parent-close="detailsDialog = false"/>-->
     </div>
 </template>
 
@@ -127,19 +116,20 @@ export default {
     name: 'RenewApproval',
     // 组件
     components: {
-        // Details
+    
     },
     props: {},
     data() {
         return {
-            // search: {
-            //     name: '',
-            //     code: ''
-            // },
+            search: {
+                name: '',
+                code: ''
+            },
             tableData: [],
+            tableHeight: 520,
             currentPage: 1,
             total: 0,
-            pageSize: 10,
+            pageSize: 15,
             detailsDialog: false,
             itemId: '',
         };
@@ -167,6 +157,15 @@ export default {
     },
     // 方法集合
     methods: {
+        // 获取表格高度
+        getTableHeight() {
+            if (this.$refs.tableContainer) {
+                const tableHeight = this.$refs.tableContainer.offsetHeight
+                this.$nextTick(() => {
+                    this.tableHeight = tableHeight
+                });
+            }
+        },
         // 获取数据列表
         getListData() {
             const params = {
@@ -195,23 +194,23 @@ export default {
                 this.$message.error(err)
             })
         },
-        // // 搜索
-        // searchHandle () {
-        //     // 当前页码初始化
-        //     this.currentPage = 1
-        //     // 获取列表数据
-        //     this.getListData()
-        // },
-        // // 清空
-        // emptyHandle () {
-        //     this.search = {
-        //         name: '',
-        //         code: ''
-        //     }
-        //     this.currentPage = 1
-        //     // 获取列表数据
-        //     this.getListData()
-        // },
+        // 搜索
+        searchHandle () {
+            // 当前页码初始化
+            this.currentPage = 1
+            // 获取列表数据
+            this.getListData()
+        },
+        // 清空
+        emptyHandle () {
+            this.search = {
+                name: '',
+                code: ''
+            }
+            this.currentPage = 1
+            // 获取列表数据
+            this.getListData()
+        },
         // 切换页码
         handleCurrentChange (page) {
             // 设置页码
@@ -317,6 +316,8 @@ export default {
     // 挂载完成
     mounted() {
         this.getListData()
+        // 获取表格高度
+        this.getTableHeight()
     },
     // 销毁之前
     beforeDestroy() {
@@ -334,46 +335,63 @@ div{
     display: flex;
     flex-direction: column;
     padding: 20px 30px;
-    .container-header{
+    
+    .container-header {
         flex-shrink: 0;
         padding-bottom: 20px;
-        .search{
-            padding: 5px 20px;
-            background: #FFFFFF;
-            .search-form{
-                width: 100%;
+        
+        .search {
+            flex-shrink: 0;
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #fff;
+            
+            .search-item {
+                height: 45px;
                 display: flex;
-                flex-wrap: wrap;
-                .form-item{
-                    height: 45px;
-                    display: flex;
-                    align-items: center;
-                    margin-right: 20px;
-                    .form-item-lable{
-                        font-size: 12px;
-                        margin-right: 5px;
-                        flex-shrink: 0;
-                    }
-                    ::v-deep .el-input{
-                        width: 160px;
-                    }
+                align-items: center;
+                margin-right: 30px;
+                
+                .label {
+                    font-size: 14px;
+                    margin-right: 5px;
+                }
+                
+                /deep/ .el-input {
+                    width: 160px;
                 }
             }
-            .search-handle{
-                width: 100%;
+            
+            .search-handle {
                 height: 45px;
                 display: flex;
                 align-items: center;
             }
         }
     }
-    .container-main{
+    
+    
+    .container-main {
         flex-grow: 1;
-        overflow-y: auto;
         background: #FFFFFF;
-        padding: 20px;
-        .pagination{
-            text-align: right;
+        padding: 10px 20px;
+        
+        .table {
+            height: calc(100% - 60px);
+            
+            .danger {
+                color: red;
+            }
+        }
+        
+        .pagination {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
         }
     }
 }

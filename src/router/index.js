@@ -117,11 +117,32 @@ export const constantRouterMap = [
                 }
             },
             {
+                path: 'shop/detail',
+                name: 'ShopDetail',
+                hidden: true,
+                component: _import('merchant/shopDetail'),
+                meta: {
+                    title: 'shopList',
+                    active: false,
+                    roles: [101]
+                }
+            },
+            {
                 path: 'subscribable',
                 name: 'Subscribable',
                 component: _import('merchant/Subscribable'),
                 meta: {
                     title: 'subscribableServe',
+                    active: false,
+                    roles: [101]
+                }
+            },
+            {
+                path: 'upgrade',
+                name: 'Upgrade',
+                component: _import('merchant/Upgrade'),
+                meta: {
+                    title: 'upgradeList',
                     active: false,
                     roles: [101]
                 }
