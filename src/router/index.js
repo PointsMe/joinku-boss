@@ -329,6 +329,26 @@ export const constantRouterMap = [
                 }
             },
             {
+                path: 'vfMerchant',
+                name: 'vfMerchant',
+                component: _import('invoice/vf/merchant'),
+                meta: {
+                    title: 'vfMerchant',
+                    active: false,
+                    roles: [101]
+                }
+            },{
+                path: 'vfMerchant/detail',
+                name: 'vfMerchantDetail',
+                hidden: true,
+                component: _import('invoice/vf/detail'),
+                meta: {
+                    title: 'vfMerchant',
+                    active: false,
+                    roles: [101]
+                }
+            },
+            {
                 path: 'send',
                 name: 'sendList',
                 component: _import('invoice/sendList'),

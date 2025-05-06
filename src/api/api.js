@@ -499,6 +499,70 @@ export function getVatList(data) {
     params: data
   });
 }
+//vf西班牙商家
+export function vfMerchantPage(data) {
+  return request({
+    url: "api/v3/vf/merchant/page",
+    method: "post",
+    data
+  });
+}
+export function vfMerchantDetail(data) {
+  return request({
+    url: "api/v3/vf/merchant/detail",
+    method: "post",
+    data
+  });
+}
+export function vfMerchantCreate(data) {
+  return request({
+    url: "api/v3/vf/merchant/create",
+    method: "post",
+    data
+  });
+}
+export function vfMerchantUpdate(data) {
+  return request({
+    url: "api/v3/vf/merchant/update",
+    method: "post",
+    data
+  });
+}
+export function vfMerchantRelationList(data) {
+  return request({
+    url: "api/v3/vf/merchant/relation/list",
+    method: "get",
+    params: data
+  });
+}
+export function vfVatNumberCheck(data) {
+  return request({
+    url: "api/v3/vf/merchant/vatnumber/check",
+    method: "post",
+    data
+  });
+}
+export function vfLenderPointsmeBind(data) {
+  return request({
+    url: 'api/v3/vf/merchant/relation/bind',
+    method: 'post',
+    data
+  });
+}
+export function vfLenderPointsmeUntied(data) {
+  return request({
+    url: 'api/v3/vf/merchant/relation/unbind',
+    method: 'post',
+    params: data
+  });
+}
+export function vfMerchantRelationPrebind(data) {
+  return request({
+    url: 'api/v3/vf/merchant/relation/prebind',
+    method: 'post',
+    data
+  });
+}
 //绑定点餐商家
 export function merchantRelationList(data) {
   return request({
