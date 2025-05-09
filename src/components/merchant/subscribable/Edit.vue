@@ -16,12 +16,12 @@
                 <!--    <el-input v-model="formData.name"-->
                 <!--              autocomplete="off"></el-input>-->
                 <!--</el-form-item>-->
-                <el-form-item :label="$t('common.serveSerialNum')" prop="code">
+                <el-form-item :label="$t('common.serveName')" prop="code">
                     <el-select v-model="formData.code" :disabled="!!itemId">
                         <el-option
                             v-for="item in codeOptions"
                             :key="item.code"
-                            :label="item.code"
+                            :label="item.name"
                             :value="item.code">
                         </el-option>
                     </el-select>
@@ -203,15 +203,18 @@ export default {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
                     let name = ''
+                    let ifMerchant = true
                     let currentCode = this.codeOptions.find(item => item.code === this.formData.code)
                     if (currentCode) {
                         name = currentCode.name
+                        ifMerchant = currentCode.ifMerchant
                     } else {
                         name = this.formData.name
                     }
                     let params = {
                         name,
                         code: this.formData.code,
+                        ifMerchant,
                         freeTime: this.formData.freeTime,
                         amount: this.formData.amount,
                         description: this.formData.description
