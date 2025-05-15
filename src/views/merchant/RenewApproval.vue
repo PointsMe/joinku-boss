@@ -22,9 +22,15 @@
                     :data="tableData"
                     :max-height="tableHeight"
                     style="width: 100%">
-                    <el-table-column type="index" align="center" width="60"></el-table-column>
-                    <el-table-column prop="serviceName" :label="$t('common.serveName')" align="center" min-width="180" show-overflow-tooltip></el-table-column>
-                    <el-table-column prop="merchantName" :label="$t('common.merchantName')" align="center" min-width="180" show-overflow-tooltip></el-table-column>
+                    <el-table-column prop="serviceName" :label="$t('common.serveName')" align="center" width="160" show-overflow-tooltip></el-table-column>
+                    <el-table-column prop="merchantName" :label="$t('common.merchantName')" align="center" min-width="160" show-overflow-tooltip></el-table-column>
+                    <el-table-column
+                        prop="shopName"
+                        :label="$t('common.shopName')"
+                        align="center"
+                        min-width="160"
+                        show-overflow-tooltip>
+                    </el-table-column>
                     <el-table-column :label="$t('common.origin')" align="center" width="150">
                         <template slot-scope="scope">
                             <span v-if="scope.row.source === 101">Boss</span>
@@ -32,7 +38,7 @@
                             <span v-else-if="scope.row.source === 103">{{ $t('common.invite') }}</span>
                         </template>
                     </el-table-column>
-                    <el-table-column :label="$t('common.type')" align="center" width="150">
+                    <el-table-column :label="$t('common.type')" align="center" width="120">
                         <template slot-scope="scope">
                             <span v-if="scope.row.type === 101">{{ $t('common.presented') }}</span>
                             <span v-else-if="scope.row.type === 102">{{ $t('common.slotCard') }}</span>
@@ -40,18 +46,18 @@
                             <span v-else-if="scope.row.type === 104">{{ $t('common.cash') }}</span>
                         </template>
                     </el-table-column>
-                    <el-table-column :label="$t('common.jsrq')" align="center" width="150">
+                    <el-table-column :label="$t('common.jsrq')" align="center" width="140">
                         <template slot-scope="scope">
                             <span>{{ scope.row.endDate | filterDate }}</span>
                         </template>
                     </el-table-column>
-                    <el-table-column prop="creatorName" :label="$t('common.requester')" align="center" min-width="140" show-overflow-tooltip></el-table-column>
-                    <el-table-column :label="$t('common.creatTime')" align="center" width="220">
+                    <el-table-column prop="creatorName" :label="$t('common.requester')" align="center" width="140" show-overflow-tooltip></el-table-column>
+                    <el-table-column :label="$t('common.creatTime')" align="center" width="160">
                         <template slot-scope="scope">
                             <span>{{ scope.row.createdAt | filterTime }}</span>
                         </template>
                     </el-table-column>
-                    <el-table-column :label="$t('common.zt')" align="center" width="150">
+                    <el-table-column :label="$t('common.zt')" align="center" width="120">
                         <template slot-scope="scope">
                             <span v-if="scope.row.state === 101">{{ $t('common.waitReview2') }}</span>
                             <span v-else-if="scope.row.state === 102">{{ $t('common.reviewPass2') }}</span>
@@ -59,14 +65,14 @@
                             <span v-else-if="scope.row.state === 104">{{ $t('common.annulla') }}</span>
                         </template>
                     </el-table-column>
-                    <el-table-column prop="auditorName" :label="$t('common.approver')" align="center" min-width="150" show-overflow-tooltip></el-table-column>
+                    <el-table-column prop="auditorName" :label="$t('common.approver')" align="center" width="140" show-overflow-tooltip></el-table-column>
                     <el-table-column prop="remark" :label="$t('common.bz')" align="center" min-width="150" show-overflow-tooltip></el-table-column>
                     <el-table-column
                         class-name="handle"
                         :label="$t('common.cz')"
                         align="center"
                         fixed="right"
-                        width="220">
+                        width="200">
                         <template slot-scope="scope">
                             <el-button
                                 type="text"
