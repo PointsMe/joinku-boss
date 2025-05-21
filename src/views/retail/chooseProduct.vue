@@ -446,11 +446,9 @@ export default {
       this.getDistbutionGoods(this.currentPage2, this.pagesize2);
     },
     seleChange(val) {
-      this.saveGoodsList = [];
       this.saveGoodsList = val;
     },
     seleChangeAll(val) {
-      this.saveGoodsList = [];
       this.saveGoodsList = val;
     },
     getClassify() {
@@ -662,12 +660,12 @@ export default {
         let obj = {
           goodsId: this.saveGoodsList[i].id,
           categoryId: this.childCategoryId,
-          raisePrice: this.chooseSupplier.agent.raisePrice,
-          raisePercent: this.chooseSupplier.agent.raisePercent
+          // raisePrice: this.chooseSupplier.agent.raisePrice,
+          // raisePercent: this.chooseSupplier.agent.raisePercent
+            price: this.saveGoodsList[i].price
         }
         params.push(obj);
       }
-      // console.log( this.saveGoodsList,params);return
       distributionGoodsAdd(params,this.chooseSupplier.id).then((res) => {
         if (res.code == 20000) {
           this.$message({
