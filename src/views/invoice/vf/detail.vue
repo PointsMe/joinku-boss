@@ -772,6 +772,8 @@
       if (this.$route.query.id) {
         this.merchantForm.id = this.$route.query.id;
         this.getDetail();
+      }else{
+        this.initProvince(this.merchantForm.company.countryId)
       }
     },
     computed: {},
