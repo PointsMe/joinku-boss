@@ -213,7 +213,7 @@
           mchList: [],
           currentPage: 1,
           pageSize: 15,
-          totalCount: -1,
+          totalCount: 0,
           fileUploadBtnText: this.$t('common.importMerchant'),
           dialogVisible: false,
           tableLoading: false,
@@ -341,4 +341,3 @@
       font-size: 12px;
     }
   </style>
-  
