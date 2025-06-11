@@ -252,6 +252,62 @@ export const constantRouterMap = [
         ]
     },
     {
+        path: '/jkb',
+        name: 'JkbManage',
+        redirect: '/jkb/list',
+        component: Layout,
+        meta: {
+            title: 'JkbManage',
+            active: false,
+            icon: 'merchant',
+            roles: [101]
+        },
+        children: [
+            {
+                path: 'list',
+                name: 'JkbMerchant',
+                component: _import('beauty/merchantList'),
+                meta: {
+                    title: 'merchantList',
+                    active: false,
+                    roles: [101]
+                }
+            },{
+                path: 'detail',
+                name: 'JkbMerchantDetail',
+                hidden: true,
+                component: _import('beauty/detail'),
+                meta: {
+                    title: 'merchantList',
+                    active: false,
+                    roles: [101]
+                }
+            },
+            {
+                path: 'shop/list',
+                name: 'JkbShop',
+                component: _import('beauty/shopList'),
+                meta: {
+                    title: 'shopList',
+                    active: false,
+                    roles: [101],
+                    scrollTop: 0
+                }
+            },
+            {
+                path: 'shop/detail',
+                name: 'JkbShopDetail',
+                hidden: true,
+                component: _import('beauty/shopDetail'),
+                meta: {
+                    title: 'shopList',
+                    active: false,
+                    roles: [101]
+                }
+            },
+        ]
+    },
+    {
         path: '/b2cOrder',
         name: 'b2cOrder',
         redirect: '/b2cOrder/list',

@@ -1562,3 +1562,67 @@ export function uploadFile(params) {
         data: params
     });
 }
+//beauty 接口
+export function jkbMerchantPage(params) {
+  return request({
+      url: "api/v1/jkb/merchant/page",
+      method: "post",
+      data: params
+  });
+}
+export function jkbMerchantCreate(params) {
+  return request({
+      url: "api/v1/jkb/merchant/create",
+      method: "post",
+      data: params
+  });
+}
+export function jkbMerchantUpdate(params) {
+  return request({
+      url: "api/v1/jkb/merchant/update",
+      method: "post",
+      data: params
+  });
+}
+export function jkbMerchantDetail(params) {
+  return request({
+      url: "api/v1/jkb/merchant/detail",
+      method: "post",
+      params
+  });
+}
+export function jkbShopPage(params) {
+  return request({
+      url: "api/v1/jkb/shop/page",
+      method: "post",
+      data: params
+  });
+}
+export function jkbShopDetail(params) {
+  return request({
+      url: "api/v1/jkb/shop/detail",
+      method: "post",
+      params
+  });
+}
+export function jkbShopCreate(params) {
+  return request({
+      url: "api/v1/jkb/shop/create",
+      method: "post",
+      data: params
+  });
+}
+export function jkbShopUpdate(params) {
+  return request({
+      url: "api/v1/jkb/shop/update",
+      method: "post",
+      data: params
+  });
+}
+export function jkbShopSubScribeUpdate(params) {
+  return request({
+      url: "api/v1/jkb/shop/subscribe/update ",
+      method: "post",
+      data: params
+  });
+}

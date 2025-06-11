@@ -984,6 +984,7 @@ export default {
         suchVersion: 'Ad esempio 1.0.0',
         updateTime: 'Ora dell\'aggiornamento',
         choiceFile: 'Scegli file',
+        enableTax: '税号搜索',
     },
     route: {
         home: 'Panoramica',
@@ -1024,6 +1025,7 @@ export default {
         salesList: 'Lista venditori',
         saleList: 'Festione della distribuzione',
         merchant: 'Commerciante al dettaglio',
+        JkbManage:'Beauty',
         invoiceManage: 'Gestione fatture',
         invoceMerchant: 'Commerciante di fatture',
         vfMerchant: 'VeriFactu商家',

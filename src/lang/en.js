@@ -984,6 +984,7 @@ export default {
         suchVersion: 'For example 1.0.0',
         updateTime: 'Update time',
         choiceFile: 'Choose file',
+        enableTax: '税号搜索',
     },
     route: {
         home: 'Overview',
@@ -1024,6 +1025,7 @@ export default {
         salesList: 'Sellers list',
         saleList: 'Distribution party',
         merchant: 'Retail merchant',
+        JkbManage:'Beauty',
         invoiceManage: 'Invoice management',
         invoceMerchant: 'Bill Merchant',
         vfMerchant: 'VeriFactu商家',
