@@ -270,7 +270,7 @@
           <el-form-item label-width="120px" prop="raisePercent" v-if ="raisePriceForm.priceOrPercent">
             <span slot="label">
                 <span>
-                $t('common.percentDiscount'):
+                {{ $t('common.percentDiscount') }}:
                 </span>
             </span>
             <el-input v-model="raisePriceForm.raisePercent" size="medium" clearable type="Number"></el-input>
@@ -278,7 +278,7 @@
           <el-form-item label-width="120px" prop="raisePrice" v-else>
             <span slot="label">
                 <span>
-                  $t('common.changePrice'):
+                  {{ $t('common.changePrice') }}:
                 </span>
             </span>
             <el-input v-model="raisePriceForm.raisePrice" size="medium" clearable></el-input>
@@ -290,7 +290,7 @@
         </div>
       </div>
     </el-dialog>
-    <el-dialog width="81%" :visible.sync="showAddProduct" :close-on-click-modal="false" :show-close="false" :title="$t('common.addDistriGoods')">
+    <el-dialog width="85%" :visible.sync="showAddProduct" top="5vh" :close-on-click-modal="false" :show-close="false" :title="$t('common.addDistriGoods')">
       <el-steps :active="goStep" finish-status="success">
         <el-step :title="$t('common.chooseWholesaler')"></el-step>
         <el-step :title="$t('common.chooseProduct')" v-if="goType == 'product'"></el-step>
@@ -682,12 +682,11 @@ export default {
       this.raisePriceForm.priceOrPercent = dt.raisePrice?false:true;
       this.raisePriceForm.raisePercent = dt.raisePercent;
       this.raisePriceForm.raisePrice = dt.raisePrice;
-      this.showBatchPrice = true;
-      let obj = {
-        merchantId: dt.merchantId,
-        goodsId: dt.id
-      };
-      this.raisePriceForm.ids.push(obj);
+        this.raisePriceForm.ids = [{
+            merchantId: dt.merchantId,
+            goodsId: dt.id
+        }]
+        this.showBatchPrice = true;
     },
     remoteMethod(query) {
       this.loading2 = true;
