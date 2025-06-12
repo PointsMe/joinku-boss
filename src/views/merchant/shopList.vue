@@ -137,6 +137,9 @@
             </el-table-column>
             <el-table-column align="center" header-align="center" width="200" :label="$t('common.cz')" fixed="right">
               <template slot-scope="scope">
+                <el-button type="text" size="mini"
+                                        @click="subscribeDo(scope.row);">{{ $t('common.subscriSet') }}
+                            </el-button>
                 <el-button size="mini" type="text" @click="showDeviceLicence(scope.row)">{{ $t("common.licence") }}</el-button>
                   <el-button type="text" size="mini"
                              @click="subscHandle(scope.row.merchantId, scope.row.id);">{{ $t('common.subscServe') }}
@@ -165,6 +168,13 @@
             :merchantId="merchantId"
             :shopId="itemId"
             @parent-close="subscDialog = false"/>
+        <Subscribe
+            :showSubscribe="showSubscribe"
+            :shopId="itemId"
+            @closeSubscribe="closeSubscribe"
+            @saveSubscribe="saveSubscribe"
+            :subscribe="subscribeDt"
+            ></Subscribe>
     </el-container>
   </template>
   <script>
@@ -174,12 +184,14 @@
   } from "@/api/api";
   import Host from '@/views/components/host';
   import Subsc from "@/components/merchant/merchant/Subsc";
+  import Subscribe from "@/components/merchant/merchant/Subscribe";
   var moment = require("moment");
   export default {
     name: "shopList",
     components: {
         Host,
-        Subsc
+        Subsc,
+        Subscribe
     },
     data() {
       return {
@@ -202,7 +214,9 @@
           chooseItem:'',
           merchantId: '',
           itemId: '',
-          subscDialog: false
+          subscDialog: false,
+          subscribeDt:{},
+            showSubscribe: false,
       };
     },
     methods: {
@@ -301,6 +315,20 @@
         closeHost(){
             this.showHost = false;
             this.chooseItem = '';
+        },
+        subscribeDo(dt) {
+            this.subscribeDt = dt.subscribe != null?dt.subscribe:{enableCreditSafe:false};
+            this.showSubscribe = true;
+            this.merchantId = dt.merchantId
+            this.itemId = dt.id;
+        },
+        closeSubscribe() {
+            this.showSubscribe = false;
+            this.itemId = "";
+        },
+        saveSubscribe() {
+            this.closeSubscribe();
+            this.getShopList(this.currentPage, this.pagesize);
         },
     },
     watch: {
