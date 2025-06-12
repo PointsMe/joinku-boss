@@ -80,7 +80,7 @@
 </template>
 <script>
 import {
-    jkbShopSubScribeUpdate
+    o2oShopSubscribeUpdate
 } from '@/api/api';
 import Vue from "vue";
 
@@ -171,7 +171,7 @@ export default {
                 // enableFoodFeature: this.subForm.enableFoodFeature,
                 shopId: this.shopId,
             };
-            jkbShopSubScribeUpdate(params).then((res) => {
+            o2oShopSubscribeUpdate(params).then((res) => {
                 if (res.code == 20000) {
                     this.$emit('saveSubscribe');
                 } else {

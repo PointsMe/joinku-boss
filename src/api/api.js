@@ -1621,7 +1621,49 @@ export function jkbShopUpdate(params) {
 }
 export function jkbShopSubScribeUpdate(params) {
   return request({
-      url: "api/v1/jkb/shop/subscribe/update ",
+      url: "api/v1/jkb/shop/subscribe/update",
+      method: "post",
+      data: params
+  });
+}
+export function jkbEmployeePage(params) {
+  return request({
+      url: "api/v1/jkb/merchant/employee/page",
+      method: "post",
+      data: params
+  });
+}
+export function jkbEmployeepswReset(params) {
+  return request({
+      url: "api/v1/jkb/merchant/employee/password/reset",
+      method: "post",
+      data: params
+  });
+}
+export function jkbEmployeeEmailUpdate(params) {
+  return request({
+      url: "api/v1/jkb/merchant/employee/email/update",
+      method: "post",
+      data: params
+  });
+}
+export function jkbEmployeeMobileUpdate(params) {
+  return request({
+      url: "api/v1/jkb/merchant/employee/mobile/update",
+      method: "post",
+      data: params
+  });
+}
+export function jkbEmployeePswTemp(params) {
+  return request({
+      url: "api/v1/jkb/merchant/employee/password/template",
+      method: "post",
+      data: params
+  });
+}
+export function o2oShopSubscribeUpdate(params) {
+  return request({
+      url: "api/v1/o2o/shop/subscribe/update",
       method: "post",
       data: params
   });

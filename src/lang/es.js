@@ -985,6 +985,8 @@ export default {
         updateTime: 'Hora de actualización',
         choiceFile: 'Elegir archivo',
         enableTax: '税号搜索',
+        subscriSet:'订阅信息设置',
+        validateLength6_32: '长度在 6 ~ 32个字符之间',
     },
     route: {
         home: 'Descripción general',

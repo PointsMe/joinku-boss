@@ -565,7 +565,7 @@
                 <div class="title">
                     <span class="border"></span>
                     <span class="tit">
-                        {{ $t('common.maySubscServe') }}
+                        {{ $t('common.subscriSet') }}
                     </span>
                     <span class="require">
                         （ <span class="tag" style="color: red;">*</span> {{ $t('common.bitian') }} ）

@@ -137,8 +137,11 @@
             </el-table-column>
             <el-table-column align="center" header-align="center" width="200" :label="$t('common.cz')" fixed="right">
               <template slot-scope="scope">
+                <el-button type="text" size="mini"
+                            @click="doShowWaiter(scope.row);">{{ $t('common.employeeList') }}
+                </el-button>
                   <el-button type="text" size="mini"
-                             @click="subscribeDo(scope.row);">{{ $t('common.subscServe') }}
+                             @click="subscribeDo(scope.row);">{{ $t('common.subscriSet') }}
                   </el-button>
                 <el-button size="mini" type="text" @click="revise(scope.row)">{{$t("common.xg")}}</el-button>
               </template>
@@ -165,6 +168,12 @@
         @saveSubscribe="saveSubscribe"
         :subscribe="subscribeDt"
         ></Subsc>
+        <Waiter
+        :showWaiter="showWaiter"
+        :merchantId="merchantId"
+        :shopId="itemId"
+        @closeWaiter="closeWaiter"
+        ></Waiter>
     </el-container>
   </template>
   <script>
@@ -173,11 +182,13 @@
     getCountryList
   } from "@/api/api";
   import Subsc from "@/views/components/beauty/subsc";
+  import Waiter from "./waiter";
   var moment = require("moment");
   export default {
     name: "JkbShop",
     components: {
-        Subsc
+        Subsc,
+        Waiter
     },
     data() {
       return {
@@ -200,7 +211,8 @@
           merchantId: '',
           itemId: '',
           subscribeDt:{},
-          showSubscribe: false
+          showSubscribe: false,
+          showWaiter: false,
       };
     },
     methods: {
@@ -299,6 +311,16 @@
         saveSubscribe() {
             this.closeSubscribe();
             this.getShopList(this.currentPage, this.pagesize);
+        },
+        doShowWaiter(dt) {
+            this.showWaiter = true;
+            this.merchantId = dt.merchantId;
+            this.itemId = dt.id;
+        },
+        closeWaiter() {
+        this.showWaiter = false;
+        this.merchantId = "";
+        this.itemId = "";
         },
     },
     watch: {
