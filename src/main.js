@@ -31,6 +31,13 @@ Vue.use(ElementUI, {
 });
 // Vue.use(ElementUI);
 
+// 引入全局过滤器
+import * as custom from '@/utils/filter.js'
+// 注册全局过滤器
+Object.keys(custom).forEach(key => {
+    Vue.filter(key, custom[key])
+})
+
 // 引入qs
 import qs from 'qs'
 // 注册qs

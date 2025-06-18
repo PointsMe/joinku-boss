@@ -1,7 +1,9 @@
 <template>
   <transition name="rotate-fall">
     <div id="app">
-      <router-view class="app-router-view"></router-view>
+        <keep-alive :include="keepIncludes">
+            <router-view  class="app-router-view" />
+        </keep-alive>
     </div>
   </transition>
 </template>
@@ -9,7 +11,12 @@
 <script>
 // import 'vue-transition.css'
 export default {
-  name: 'App'
+  name: 'App',
+    data() {
+        return {
+            keepIncludes: ['PlatformProduct']
+        };
+    },
 }
 </script>
 <style lang='scss'>

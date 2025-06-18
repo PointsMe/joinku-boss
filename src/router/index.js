@@ -30,11 +30,11 @@ export const constantRouterMap = [
     },
     {
         path: '/supplier',
-        name: 'SupplierManage',
+        name: 'wholesaler',
         redirect: '/supplier/list',
         component: Layout,
         meta: {
-            title: 'supplierManage',
+            title: 'wholesaler',
             active: false,
             icon: 'supplier',
             roles: [101]
@@ -45,7 +45,7 @@ export const constantRouterMap = [
                 name: 'Supplier',
                 component: _import('supplier/list'),
                 meta: {
-                    title: 'supplierList',
+                    title: 'wholesalerList',
                     active: false,
                     roles: [101]
                 }
@@ -55,7 +55,7 @@ export const constantRouterMap = [
                 hidden: true,
                 component: _import('supplier/detail'),
                 meta: {
-                    title: 'supplierList',
+                    title: 'wholesalerList',
                     active: false,
                     roles: [101]
                 }
@@ -245,6 +245,82 @@ export const constantRouterMap = [
                 component: _import('retail/categoryList'),
                 meta: {
                     title: 'classify2',
+                    active: false,
+                    roles: [101]
+                }
+            }
+        ]
+    },
+    {
+        path: '/platform',
+        name: 'Platform',
+        redirect: '/platform/product',
+        component: Layout,
+        meta: {
+            title: 'productLibrary',
+            active: false,
+            icon: 'product_lib',
+            roles: [101]
+        },
+        children: [
+            {
+                path: 'product',
+                name: 'PlatformProduct',
+                component: _import('platform/Product'),
+                meta: {
+                    title: 'productList',
+                    active: false,
+                    roles: [101]
+                }
+            },
+            {
+                path: 'product-edit',
+                name: 'PlatformProductEdit',
+                component: _import('platform/ProductEdit'),
+                hidden: true,
+                meta: {
+                    title: 'productList',
+                    active: false,
+                    roles: [101]
+                }
+            },
+            {
+                path: 'product-import',
+                name: 'PlatformProductImport',
+                component: _import('platform/ProductImport'),
+                hidden: true,
+                meta: {
+                    title: 'productList',
+                    active: false,
+                    roles: [101]
+                }
+            },
+            {
+                path: 'audit',
+                name: 'PlatformAudit',
+                component: _import('platform/Audit'),
+                meta: {
+                    title: 'productAudit',
+                    active: false,
+                    roles: [101]
+                }
+            },
+            {
+                path: 'classify',
+                name: 'PlatformClassify',
+                component: _import('platform/Classify'),
+                meta: {
+                    title: 'classifyManage',
+                    active: false,
+                    roles: [101]
+                }
+            },
+            {
+                path: 'brand',
+                name: 'PlatformBrand',
+                component: _import('platform/Brand'),
+                meta: {
+                    title: 'brand',
                     active: false,
                     roles: [101]
                 }
