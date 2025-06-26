@@ -888,13 +888,6 @@ export function payUpload(data) {
     data
   });
 }
-export function uploadImage(data) {
-  return request({
-    url: 'api/v1/image/upload',
-    method: 'post',
-    data
-  });
-}
 // 收款管理列表
 export function paymentList(data) {
   return request({
@@ -1551,17 +1544,6 @@ export function deleteShopUpgrade(params) {
     });
 }
 
-/**
- * 上传文件
- * @returns {*}
- */
-export function uploadFile(params) {
-    return request({
-        url: "api/v3/upload/file",
-        method: "post",
-        data: params
-    });
-}
 //beauty 接口
 export function jkbMerchantPage(params) {
   return request({
@@ -1667,4 +1649,345 @@ export function o2oShopSubscribeUpdate(params) {
       method: "post",
       data: params
   });
+}
+
+/**
+ * 查询平台商品分页
+ * @param params
+ * @returns {*}
+ */
+export function queryPlatformProductPage(params) {
+    return request({
+        url: "api/v3/platform/product/page",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 查询平台商品详情
+ * @param params
+ * @returns {*}
+ */
+export function queryPlatformProductDetail(params) {
+    return request({
+        url: "api/v3/platform/product/detail",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 创建平台商品
+ * @param params
+ * @returns {*}
+ */
+export function createPlatformProduct(params) {
+    return request({
+        url: "api/v3/platform/product/create",
+        method: "post",
+        data: params
+    });
+}
+
+
+/**
+ * 更新平台商品
+ * @param params
+ * @returns {*}
+ */
+export function updatePlatformProduct(params) {
+    return request({
+        url: "api/v3/platform/product/update",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 删除平台商品
+ * @param params
+ * @returns {*}
+ */
+export function deletePlatformProduct(params) {
+    return request({
+        url: "api/v3/platform/product/delete",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 刷新平台商品特性
+ * @param params
+ * @returns {*}
+ */
+export function refreshPlatformProductFeature(params) {
+    return request({
+        url: "api/v3/platform/product/refresh/feature",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 下载平台商品模板
+ * @param params
+ * @returns {*}
+ */
+export function downloadPlatformProductTem() {
+    return request({
+        url: "api/v3/platform/product/template/download",
+        method: "post",
+        responseType: 'blob'
+    });
+}
+
+/**
+ * 预导入平台商品
+ * @param params
+ * @returns {*}
+ */
+export function preimportPlatformProduct(params) {
+    return request({
+        url: "api/v3/platform/product/preimport",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 导入平台商品
+ * @param params
+ * @returns {*}
+ */
+export function importPlatformProduct(params) {
+    return request({
+        url: "api/v3/platform/product/import",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 查询平台商品分类树
+ * @param params
+ * @returns {*}
+ */
+export function queryPlatformClassifyTree(params) {
+    return request({
+        url: "api/v3/product/category/tree",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 查询平台商品分类详情
+ * @param params
+ * @returns {*}
+ */
+export function queryPlatformClassifyDetail(params) {
+    return request({
+        url: "api/v3/product/category/detail",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 创建平台商品分类
+ * @param params
+ * @returns {*}
+ */
+export function createPlatformClassify(params) {
+    return request({
+        url: "api/v3/product/category/create",
+        method: "post",
+        data: params
+    });
+}
+
+
+/**
+ * 更新平台商品分类
+ * @param params
+ * @returns {*}
+ */
+export function updatePlatformClassify(params) {
+    return request({
+        url: "api/v3/product/category/update",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 删除平台商品分类
+ * @param params
+ * @returns {*}
+ */
+export function deletePlatformClassify(params) {
+    return request({
+        url: "api/v3/product/category/delete",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 查询平台商品品牌分页
+ * @param params
+ * @returns {*}
+ */
+export function queryPlatformBrandPage(params) {
+    return request({
+        url: "api/v3/product/brand/page",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 查询平台商品品牌详情
+ * @param params
+ * @returns {*}
+ */
+export function queryPlatformBrandDetail(params) {
+    return request({
+        url: "api/v3/product/brand/detail",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 创建平台商品品牌
+ * @param params
+ * @returns {*}
+ */
+export function createPlatformBrand(params) {
+    return request({
+        url: "api/v3/product/brand/create",
+        method: "post",
+        data: params
+    });
+}
+
+
+/**
+ * 更新平台商品品牌
+ * @param params
+ * @returns {*}
+ */
+export function updatePlatformBrand(params) {
+    return request({
+        url: "api/v3/product/brand/update",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 删除平台商品品牌
+ * @param params
+ * @returns {*}
+ */
+export function deletePlatformBrand(params) {
+    return request({
+        url: "api/v3/product/brand/delete",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 查询平台商品审核分页
+ * @param params
+ * @returns {*}
+ */
+export function queryPlatformAuditPage(params) {
+    return request({
+        url: "api/v3/product/review/page",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 查询平台商品审核详情
+ * @param params
+ * @returns {*}
+ */
+export function queryPlatformAuditDetail(params) {
+    return request({
+        url: "api/v3/product/review/detail",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 更新平台商品审核
+ * @param params
+ * @returns {*}
+ */
+export function updatePlatformAudit(params) {
+    return request({
+        url: "api/v3/product/review/update",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 平台商品审核通过
+ * @param params
+ * @returns {*}
+ */
+export function approvedPlatformAudit(params) {
+    return request({
+        url: "api/v3/product/review/approved",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 删除平台商品审核
+ * @param params
+ * @returns {*}
+ */
+export function deletePlatformAudit(params) {
+    return request({
+        url: "api/v3/product/review/delete",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 上传图片
+ * @param params
+ * @returns {*}
+ */
+export function uploadImage(params) {
+    return request({
+        url: "api/v3/upload/image",
+        method: "post",
+        data: params
+    });
+}
+
+/**
+ * 上传文件
+ * @param params
+ * @returns {*}
+ */
+export function uploadFile(params) {
+    return request({
+        url: "api/v3/upload/file",
+        method: "post",
+        data: params
+    });
 }
