@@ -34,12 +34,6 @@
                 <div class="search-handle">
                     <el-button type="primary" size="mini" @click="searchHandle()">{{ $t('common.sousuo') }}</el-button>
                     <el-button size="mini" @click="clearHandle()">{{ $t('common.qk') }}</el-button>
-                    <el-button
-                        type="primary"
-                        size="mini"
-                        @click="addHandle()">
-                        {{ $t('common.add') }}
-                    </el-button>
                 </div>
             </div>
         </div>
@@ -274,11 +268,6 @@ export default {
             }).catch(err => {
                 this.$message.error(err);
             })
-        },
-        // 新增
-        addHandle () {
-            this.itemId = ''
-            this.editDialog = true
         },
         // 编辑
         editHandle (id) {

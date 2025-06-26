@@ -310,7 +310,7 @@ export default {
                     let ccid = '';
                     if (Array.isArray(this.formData.classifyId) && this.formData.classifyId.length === 2) {
                         pcid = this.formData.classifyId[0]
-                        ccid = this.formData.classifyId[0]
+                        ccid = this.formData.classifyId[1]
                     }
                     let params = {
                         name: this.formData.name,

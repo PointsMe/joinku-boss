@@ -162,8 +162,7 @@
                                     <el-button
                                         type="text"
                                         :disabled="refreshDisabled"
-                                        @click="refreshFeatureHandle(scope.row.id)"
-                                        v-if="scope.row.featureState === 101">
+                                        @click="refreshFeatureHandle(scope.row.id)">
                                         {{ $t('common.refreshFeature') }}
                                     </el-button>
                                     <el-button
@@ -295,18 +294,22 @@ export default {
             queryPlatformClassifyTree({}).then(res => {
                 if (Number(res.code) === 20000) {
                     let resData = res.data || []
-                    this.classifyTree = resData.map(item => {
-                        let children = item.children.map(inItem => {
-                            return {
-                                ...inItem,
-                                children: null
-                            }
-                        })
-                        return {
-                            ...item,
-                            children
+                    resData.forEach(item => {
+                        if (Array.isArray(item.children)) {
+                            item.children.forEach(inItem => {
+                                inItem.children = null
+                            })
                         }
                     })
+                    this.classifyTree = [
+                        {
+                            parentId: '0',
+                            id: '',
+                            name: this.$t('common.allClassify'),
+                            children: null
+                        },
+                        ...resData
+                    ]
                 }
             });
         },
@@ -504,6 +507,10 @@ export default {
         if (from.name === 'PlatformProductEdit') {
             next(vm => {
                 vm.getListData()
+                // 获取分类树
+                vm.getClassifyTree()
+                // 品牌列表
+                vm.getBrandList()
             })
         } else {
             next(vm => {
