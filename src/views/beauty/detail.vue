@@ -339,7 +339,7 @@
                 </el-row>
               </div>
             </div>
-            <div class="saleInfo">
+            <div class="payInfo">
               <div class="title">
                 <span class="border"></span>
                 <span class="tit">
@@ -410,7 +410,7 @@
                 </el-row>
               </div>
             </div>
-            <div class="payInfo">
+            <!-- <div class="payInfo">
               <div class="title">
                 <span class="border"></span>
                 <span class="tit">
@@ -610,20 +610,10 @@
                         v-model="merchantForm.address.contactPhone"
                       ></el-input>
                     </el-form-item>
-                    <!-- <el-form-item
-                      :label="$t('common.yx')"
-                      label-width="100px"
-                      prop="contactEmail"
-                    >
-                      <el-input
-                        size="middle"
-                        v-model="merchantForm.address.contactEmail"
-                      ></el-input>
-                    </el-form-item> -->
                   </el-col>
                 </el-row>
               </div>
-            </div>
+            </div> -->
           </el-form>
           <div class="opBtn">
             <div
