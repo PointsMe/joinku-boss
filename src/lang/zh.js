@@ -1006,6 +1006,8 @@ export default {
         errorData: '错误数据',
         beforeStep: '上一步',
         restore: '还原',
+        standardShop: '标准门店',
+        miniShop: 'MINI门店',
     },
     route: {
         home: '概述',

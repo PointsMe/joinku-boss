@@ -348,7 +348,8 @@ export const constantRouterMap = [
                     active: false,
                     roles: [101]
                 }
-            },{
+            },
+            {
                 path: 'detail',
                 name: 'JkbMerchantDetail',
                 hidden: true,

@@ -1006,6 +1006,8 @@ export default {
         errorData: 'Datos erróneos',
         beforeStep: 'Paso anterior',
         restore: 'Restaurar',
+        standardShop: 'Tienda estándar',
+        miniShop: 'Tienda MINI',
     },
     route: {
         home: 'Descripción general',

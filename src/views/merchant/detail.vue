@@ -6,7 +6,7 @@
             :model="merchantForm"
             :rules="fullDetailRules"
             ref="merchantForm"
-            size="middle"
+            size="small"
           >
             <div class="baseInfo">
               <div class="title">
@@ -52,7 +52,6 @@
                       prop="name"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.name"
                         :placeholder="$t('common.qsrnr')"
                       ></el-input>
@@ -63,7 +62,6 @@
                       prop="company.name"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.company.name"
                         :placeholder="$t('common.lengthNot80Charact')"
                         maxlength="80"
@@ -122,7 +120,6 @@
                       :label="$t('common.partitaIVA')"
                     >
                       <el-input
-                        size="middle"
                         type="text"
                         v-model.trim="merchantForm.company.vatNumber"
                         :placeholder="$t('common.lengthNot32Charact')"
@@ -136,7 +133,6 @@
                       :label="$t('common.codicefiscale')"
                     >
                       <el-input
-                        size="middle"
                         type="text"
                         v-model.trim="merchantForm.company.taxCode"
                         :placeholder="$t('common.lengthNot32Charact')"
@@ -359,7 +355,6 @@
                       prop="contactName"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.company.contactName"
                       ></el-input>
                     </el-form-item>
@@ -369,7 +364,6 @@
                       prop="contactEmail"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.company.contactEmail"
                       ></el-input>
                     </el-form-item>
@@ -381,7 +375,6 @@
                       prop="contactPhone"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.company.contactPhone"
                       ></el-input>
                     </el-form-item>
@@ -596,7 +589,6 @@
                       prop="contactName"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.address.contactName"
                       ></el-input>
                     </el-form-item>
@@ -606,7 +598,6 @@
                       prop="contactPhone"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.address.contactPhone"
                       ></el-input>
                     </el-form-item>
@@ -616,7 +607,7 @@
                       prop="contactEmail"
                     >
                       <el-input
-                        size="middle"
+                       
                         v-model="merchantForm.address.contactEmail"
                       ></el-input>
                     </el-form-item> -->
@@ -1368,7 +1359,6 @@
   .myIpt{
       /deep/ .el-input__inner {
           padding-left: 60px;
-      }  
-  } 
+      }
+  }
   </style>
-    

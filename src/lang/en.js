@@ -1006,6 +1006,8 @@ export default {
         errorData: 'Error data',
         beforeStep: 'Previous step',
         restore: 'Restore',
+        standardShop: 'Standard Shop',
+        miniShop: 'MINI Shop',
     },
     route: {
         home: 'Overview',

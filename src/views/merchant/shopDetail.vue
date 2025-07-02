@@ -6,7 +6,7 @@
             :model="merchantForm"
             :rules="fullDetailRules"
             ref="merchantForm"
-            size="middle"
+            size="small"
           >
             <div class="baseInfo">
               <div class="title">
@@ -22,8 +22,21 @@
               <div class="content">
                 <el-row :gutter="20">
                   <el-col :span="12">
+                      <el-form-item
+                          :label="$t('common.type')"
+                          label-width="90px"
+                          prop="name">
+                          <el-select v-model="merchantForm.type" :placeholder="$t('common.qxz')">
+                              <el-option
+                                  v-for="item in typeOptions"
+                                  :key="item.value"
+                                  :label="item.label"
+                                  :value="item.value">
+                              </el-option>
+                          </el-select>
+                      </el-form-item>
                     <el-form-item label-width="90px" :label="$t('common.merchant')" prop="merchantId">
-                        <el-button type="primary" @click="chooseDoMer"  v-if="!merchantForm.id">{{$t('common.seleziona')}}</el-button>
+                        <el-button type="primary" size="small" @click="chooseDoMer"  v-if="!merchantForm.id">{{$t('common.seleziona')}}</el-button>
                         <span v-if="merchantForm.merchantId">{{merchantForm.merchantName}}({{merchantForm.merchantId}})</span>
                     </el-form-item>
                     <el-form-item label-width="90px" label="LOGO">
@@ -56,7 +69,6 @@
                       prop="name"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.name"
                         :placeholder="$t('common.qsrnr')"
                       ></el-input>
@@ -67,7 +79,6 @@
                       prop="company.name"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.company.name"
                         :placeholder="$t('common.lengthNot80Charact')"
                         maxlength="80"
@@ -126,7 +137,6 @@
                       :label="$t('common.partitaIVA')"
                     >
                       <el-input
-                        size="middle"
                         type="text"
                         v-model.trim="merchantForm.company.vatNumber"
                         :placeholder="$t('common.lengthNot32Charact')"
@@ -140,7 +150,6 @@
                       :label="$t('common.codicefiscale')"
                     >
                       <el-input
-                        size="middle"
                         type="text"
                         v-model.trim="merchantForm.company.taxCode"
                         :placeholder="$t('common.lengthNot32Charact')"
@@ -292,7 +301,6 @@
                       prop="contactName"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.company.contactName"
                       ></el-input>
                     </el-form-item>
@@ -302,7 +310,6 @@
                       prop="contactEmail"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.company.contactEmail"
                       ></el-input>
                     </el-form-item>
@@ -314,7 +321,6 @@
                       prop="contactPhone"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.company.contactPhone"
                       ></el-input>
                     </el-form-item>
@@ -529,7 +535,6 @@
                       prop="contactName"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.address.contactName"
                       ></el-input>
                     </el-form-item>
@@ -539,20 +544,9 @@
                       prop="contactPhone"
                     >
                       <el-input
-                        size="middle"
                         v-model="merchantForm.address.contactPhone"
                       ></el-input>
                     </el-form-item>
-                    <!-- <el-form-item
-                      :label="$t('common.yx')"
-                      label-width="100px"
-                      prop="contactEmail"
-                    >
-                      <el-input
-                        size="middle"
-                        v-model="merchantForm.address.contactEmail"
-                      ></el-input>
-                    </el-form-item> -->
                   </el-col>
                 </el-row>
               </div>
@@ -614,6 +608,16 @@
     },
     data() {
       return {
+          typeOptions: [
+              {
+                  label: this.$t('common.standardShop'),
+                  value: 101
+              },
+              {
+                  label: this.$t('common.miniShop'),
+                  value: 102
+              }
+          ],
         searchValue: "",
         map: null,
         marker: null,
@@ -626,7 +630,7 @@
             merchantId: '',
             merchantName: '',
             id: '',
-            // type: 101,
+            type: 101,
             name: "",
             logoUrl: "",
             description: "",
@@ -962,6 +966,7 @@
   
             let params = {
               merchantId: this.merchantForm.merchantId,
+                type: this.merchantForm.type,
               name: this.merchantForm.name,
               logoUrl: this.merchantForm.logoUrl,
               description: this.merchantForm.description,
@@ -1009,6 +1014,7 @@
               id: this.merchantForm.id,
               merchantId: res.data.merchantId,
               merchantName: res.data.merchantName,
+                type: res.data.type,
               name: res.data.name,
               logoUrl: res.data.logoUrl,
               description: res.data.description,
@@ -1350,7 +1356,6 @@
   .myIpt{
       /deep/ .el-input__inner {
           padding-left: 60px;
-      }  
-  } 
+      }
+  }
   </style>
-    
